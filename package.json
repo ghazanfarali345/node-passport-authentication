@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.17.10",
     "@babel/preset-env": "^7.18.2",
     "argon2": "^0.28.5",
     "bcrypt": "^5.0.1",
