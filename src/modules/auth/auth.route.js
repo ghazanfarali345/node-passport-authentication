@@ -21,13 +21,14 @@ router.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
     failureRedirect: "/",
-    session: false,
-  }),
-  (req, res) => {
-    // console.log(req.user);
-    // const token = req.user.generateJWT();
-    // res.cookie("x-auth-cookie", token);
-    res.redirect(FRONTEND_HOST);
-  }
+    // session: false,
+    successRedirect: FRONTEND_HOST,
+  })
+  // (req, res) => {
+  //   // console.log(req.user);
+  //   // const token = req.user.generateJWT();
+  //   // res.cookie("x-auth-cookie", token);
+  //   res.redirect(FRONTEND_HOST);
+  // }
 );
 export default router;
