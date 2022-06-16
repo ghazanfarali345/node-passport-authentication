@@ -18,9 +18,10 @@ router.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
     failureRedirect: `${FRONTEND_HOST}`,
-  }),
-  (req, res) => {
-    res.send(`${FRONTEND_HOST}`);
-  }
+    successRedirect: FRONTEND_HOST,
+  })
+  // (req, res) => {
+  //   res.send(`${FRONTEND_HOST}`);
+  // }
 );
 export default router;
