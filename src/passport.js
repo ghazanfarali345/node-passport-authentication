@@ -50,9 +50,18 @@ passport.use(
       ],
     },
     function (accessToken, refreshToken, profile, cb) {
-      UserModel.findOrCreate({ facebookId: profile.id }, function (err, user) {
-        return cb(err, user);
-      });
+      console.log({ profile });
+      const res = UserModel.findOne(
+        { facebookId: profile.id },
+        function (err, user) {
+          return cb(err, user);
+        }
+      );
+      if (!res) {
+        UserModel.create({
+          ...profile,
+        });
+      }
     }
   )
 );

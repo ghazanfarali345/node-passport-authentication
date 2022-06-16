@@ -12,6 +12,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  facebookId: {
+    type: String,
+  },
   name: {
     type: String,
     // required: true,
