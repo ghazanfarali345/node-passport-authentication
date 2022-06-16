@@ -34,7 +34,7 @@ passport.use(
       clientID: FACEBOOK_CLIENT_ID,
       clientSecret: FACEBOOK_CLIENT_SECRET,
       callbackURL:
-        "https://node-passportjs-auth.herokuapp.com/facebook/callback",
+        "https://node-passportjs-auth.herokuapp.com/api/auth/facebook/callback",
       profileFields: [
         "id",
         "email",
