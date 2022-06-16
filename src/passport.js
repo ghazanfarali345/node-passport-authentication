@@ -33,10 +33,24 @@ passport.use(
     {
       clientID: FACEBOOK_CLIENT_ID,
       clientSecret: FACEBOOK_CLIENT_SECRET,
-      callbackURL: "/facebook/callback",
+      callbackURL:
+        "https://node-passportjs-auth.herokuapp.com/facebook/callback",
+      profileFields: [
+        "id",
+        "email",
+        "gender",
+        "profileUrl",
+        "displayName",
+        "locale",
+        "name",
+        "timezone",
+        "updated_time",
+        "verified",
+        "picture.type(large)",
+      ],
     },
     function (accessToken, refreshToken, profile, cb) {
-      User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+      UserModel.findOrCreate({ facebookId: profile.id }, function (err, user) {
         return cb(err, user);
       });
     }

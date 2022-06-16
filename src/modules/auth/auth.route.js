@@ -13,15 +13,21 @@ router.post(
   loginHandler
 );
 
-router.get("/facebook", passport.authenticate("facebook"));
+router.get(
+  "/facebook",
+  passport.authenticate("facebook", { scope: ["public_profile", "email"] })
+);
 router.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
-    failureRedirect: `${FRONTEND_HOST}`,
-    successRedirect: FRONTEND_HOST,
-  })
-  // (req, res) => {
-  //   res.send(`${FRONTEND_HOST}`);
-  // }
+    failureRedirect: "/",
+    session: false,
+  }),
+  (req, res) => {
+    // console.log(req.user);
+    // const token = req.user.generateJWT();
+    // res.cookie("x-auth-cookie", token);
+    res.redirect(FRONTEND_HOST);
+  }
 );
 export default router;
