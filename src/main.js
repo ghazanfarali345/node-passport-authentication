@@ -19,18 +19,17 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(
   session({
     secret: "keyboard cat",
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: false },
+    cookie: { secure: true },
   })
 );
-
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 
