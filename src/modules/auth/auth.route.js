@@ -33,6 +33,10 @@ router.get(
 );
 
 router.get("/logout", (req, res) => {
+  console.log({
+    cookies: req.cookies,
+    session: req.session,
+  });
   req.logout(function (err) {
     if (err) {
       return next(err);
