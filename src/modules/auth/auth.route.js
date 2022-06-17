@@ -37,13 +37,12 @@ router.get("/logout", (req, res) => {
     cookies: req.cookies,
     session: req.session,
   });
-  req.cookies = null;
-  req.session = null;
-  req.logout(function (err) {
-    if (err) {
-      return next(err);
-    }
-    res.redirect(FRONTEND_HOST);
+  req.session.destroy((err) => {
+    if (err) return next(err);
+
+    req.logout();
+
+    res.sendStatus(200);
   });
 });
 
