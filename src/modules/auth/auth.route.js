@@ -3,7 +3,7 @@ import passport from "passport";
 import { loginHandler } from "./auth.controller";
 
 // const FRONTEND_HOST = "http://localhost:3000";
-const FRONTEND_HOST = "https://passport-nextjs.vercel.app/";
+const FRONTEND_HOST = "https://passport-nextjs.vercel.app";
 
 const router = express.Router();
 
