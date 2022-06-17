@@ -31,4 +31,10 @@ router.get(
     res.redirect(FRONTEND_HOST);
   }
 );
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect(FRONTEND_HOST);
+});
+
 export default router;
