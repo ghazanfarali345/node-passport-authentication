@@ -33,7 +33,7 @@ passport.use(
     {
       clientID: FACEBOOK_CLIENT_ID,
       clientSecret: FACEBOOK_CLIENT_SECRET,
-      callbackURL: "https://passport-nextjs.vercel.app/dashbaord",
+      callbackURL: "https://passport-nextjs.vercel.app/dashboard",
       profileFields: [
         "id",
         "email",
