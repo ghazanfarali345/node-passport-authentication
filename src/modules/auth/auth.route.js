@@ -40,9 +40,9 @@ router.get("/logout", (req, res) => {
   req.session.destroy((err) => {
     if (err) return next(err);
 
-    req.logout();
-
-    res.sendStatus(200);
+    req.logout(() => {
+      res.sendStatus(200);
+    });
   });
 });
 
